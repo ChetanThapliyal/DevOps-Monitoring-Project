@@ -1,2 +1,3 @@
 # DevOps-Monitoring-Project
-Establish a comprehensive monitoring and alerting system for a web service using Prometheus, Alertmanager, and other supporting tools. The primary objective is to ensure that the web service's performance and availability are continuously monitored, and any anomalies or issues are promptly detected and communicated to the relevant stakeholders.
+
+Establish a comprehensive DevOps monitoring system designed for real-time tracking and management of infrastructure and applications using Prometheus, Alertmanager, and other supporting tools. It integrates various monitoring tools and technologies to provide comprehensive insights, including performance metrics, logs, and alerts. The project demonstrates setting up the monitoring environment, configuring dashboards, and automating alerts for proactive issue resolution.
