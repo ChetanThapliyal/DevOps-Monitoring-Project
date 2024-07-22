@@ -1,0 +1,52 @@
+# Configure Prometheus
+sudo tee /opt/prometheus/prometheus.yml <<EOF
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['<node_vm_ip>:9100']
+
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://<website_to_monitor>
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: <monitoring_vm_ip>:9115
+EOF
+
+# Configure Alertmanager
+sudo tee /opt/alertmanager/alertmanager.yml <<EOF
+route:
+  group_by: ['alertname']
+  receiver: 'email'
+
+receivers:
+  - name: 'email'
+    email_configs:
+      - to: '<your_email>'
+        from: '<your_email>'
+        smarthost: 'smtp.gmail.com:587'
+        auth_username: '<your_email>'
+        auth_password: '<your_password>'
+        require_tls: true
+EOF
+
+
+# Start Prometheus
+nohup /opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml &
+
+# Start Blackbox Exporter
+nohup /opt/blackbox_exporter/blackbox_exporter &
+
+# Start Alertmanager
+nohup /opt/alertmanager/alertmanager --config.file=/opt/alertmanager/alertmanager.yml &
