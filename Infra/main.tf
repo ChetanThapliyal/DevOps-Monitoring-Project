@@ -23,7 +23,7 @@ resource "google_compute_firewall" "dev-cicd-vpc-allow-custom" {
     source_ranges           = ["0.0.0.0/0"] 
     allow {
         protocol = "tcp" 
-        ports    = ["80", "443", "465", "6443", "3000-10000", "30000-32767"]
+        ports    = ["25", "80", "443", "465", "587", "6443", "27017", "3000-10000", "30000-32767"]
     }
 }
 

@@ -9,7 +9,7 @@ cd /opt
 wget https://github.com/prometheus/prometheus/releases/download/v2.53.1/prometheus-2.53.1.linux-amd64.tar.gz
 tar -xvf prometheus-2.53.1.linux-amd64.tar.gz
 rm -rf prometheus-2.53.1.linux-amd64.tar.gz
-sudo mv prometheus-2.53.1.linux-amd64 prometheus
+sudo mv prometheus-2.53.1.linux-amd64 prometheus_9090
 cd /opt/prometheus
 sudo chmod +x prometheus
 ./prometheus --config.file=prometheus.yml &
@@ -18,10 +18,11 @@ sudo chmod +x prometheus
 
 
 # Install Blackbox Exporter
+cd /opt
 wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.25.0/blackbox_exporter-0.25.0.linux-amd64.tar.gz
 tar -xvf blackbox_exporter-0.25.0.linux-amd64.tar.gz
 rm -rf blackbox_exporter-0.25.0.linux-amd64.tar.gz
-sudo mv blackbox_exporter-0.25.0.linux-amd64 blackbox_exporter
+sudo mv blackbox_exporter-0.25.0.linux-amd64 blackbox_exporter_9115
 cd /opt/blackbox_exporter
 sudo chmod +x blackbox_exporter
 ./blackbox_exporter &
@@ -29,10 +30,11 @@ sudo chmod +x blackbox_exporter
 
 
 # Install Alertmanager
+cd /opt
 wget https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
 tar -xvf alertmanager-0.27.0.linux-amd64.tar.gz
 rm -rf alertmanager-0.27.0.linux-amd64.tar.gz
-sudo mv alertmanager-0.27.0.linux-amd64 alertmanager
+sudo mv alertmanager-0.27.0.linux-amd64 alertmanager_9093
 cd /opt/alertmanager
 sudo chmod +x alertmanager
 ./alertmanager --config.file=alertmanager.yml &
