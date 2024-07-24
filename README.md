@@ -63,7 +63,7 @@ This project demonstrates the implementation of a comprehensive monitoring syste
     gcp_zone = Zone
     gcp_service_account_email = Your Service Account Email
     gcp_network_interface_subnetworks = "projects/gcp_project_id/regions/Region/subnetworks/NetworkName"  
-  ```
+   ```
 
 3. **Deploy the Infrastructure with Terraform:**
    Navigate to the `Infra` directory and apply the Terraform configuration:
@@ -72,7 +72,7 @@ This project demonstrates the implementation of a comprehensive monitoring syste
    terraform init
    terraform apply
    ```
-   - 2 VM's will be created 'monitoring' and 'NodeExporter'
+   - Two VM's will be created 'monitoring' and 'NodeExporter'
 
 4. **Configure Monitoring Tools:**
     - SSH into monitoring VM and replace prometheus.yml in prometheus installation (from config folder) and add `alert_rules.yml` in same folder:
