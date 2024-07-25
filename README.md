@@ -4,6 +4,8 @@
 
 This project demonstrates the implementation of a comprehensive monitoring system using Prometheus, Node Exporter, Blackbox Exporter, and Alertmanager. The infrastructure is provisioned using Terraform, ensuring a consistent and repeatable setup.
 
+![Monitoring System](/Architecture/monitoring.png)
+
 ## Features
 
 - **Comprehensive Monitoring:** Collects and visualizes metrics from various sources, including system resources and application-specific metrics.
